@@ -10,6 +10,7 @@ namespace FileScheduleProject.Models
     {
         public FileContext(DbContextOptions options) : base(options)
         {
+
         }
 
         public DbSet<Report> Report { get; set; }
