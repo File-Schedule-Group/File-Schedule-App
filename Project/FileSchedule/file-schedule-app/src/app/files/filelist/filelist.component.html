@@ -9,7 +9,7 @@
     
     <!-- dataTable -->
     <div class="mat-elavation-z8">
-        <table mat-table [dataSource]="dataSource" mat-sort>
+        <table mat-table [dataSource]="dataSorce" mat-sort>
                 <ng-container matColumnDef="FileName">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
                     <td mat-cell *matCelDef="let row">{{row.FileName}}</td>>
@@ -27,6 +27,6 @@
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;">
                 </tr>
         </table>
-        <!-- <mat-paginator [pageSizeOptions]="[5,10,25,100]"></mat-paginator> -->
+        <mat-paginator [pageSizeOptions]="[5,10,25,100]"></mat-paginator>
     </div>
 
