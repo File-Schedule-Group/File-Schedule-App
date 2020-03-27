@@ -1,1 +1,30 @@
-<p>FileList</p>
+<!--File upload button  -->
+<button mat-flat-button color ="primary" type="button" style="margin-left: 5%; margin-top: 1%;">Upload Files</button><br><br>
+    
+    <!-- Apply filter -->
+     <mat-form-field style="widows: 80px; margin-left : 5%; width: 80%; margin-top: 1%;">
+        <input matInput (keyup)="applyFilter($event)" placeholder="Search"> 
+    </mat-form-field>
+    
+    <!-- dataTable -->
+    <div class="mat-elavation-z8">
+        <table mat-table [dataSource]="dataSource" mat-sort>
+                <ng-container matColumnDef="FileName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+                    <td mat-cell *matCelDef="let row">{{row.FileName}}</td>>
+                </ng-container>
+                <ng-container matColumnDef="FilePath">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Path</th>
+                    <td mat-cell *matCelDef="let row">{{row.FilePath}}</td>
+                </ng-container>
+                <ng-container matColumnDef="Category">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Category</th>
+                    <td mat-cell *matCelDef="let row">{{row.Category}}</td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+                </tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5,10,25,100]"></mat-paginator>
+    </div>
