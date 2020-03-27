@@ -1,0 +1,14 @@
+.icon{
+    color: white;
+}
+table{
+    width: 80%;
+    margin-left: 5%;
+}
+.mat-form-feild{
+    font-size: 14px;
+    width: 100%;
+}
+td,th{
+    width: 25%;
+}
