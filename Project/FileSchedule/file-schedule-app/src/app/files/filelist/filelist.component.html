@@ -1,72 +1,4 @@
-<<<<<<< HEAD
 
-<!-- upload button  -->
-<button mat-flat-button color ="primarry" type="button" (click)="OpenFolder()" style="margin-left: 5%;">
-    <input type="file" id="fileup" name="fileup">
-Upload Files</button><br><br>
-    
-<!-- Apply filter -->
-<input type="text" #Myinput [(ngModel)]="Name" (input)="Search()" class="form-control" style="margin-left: 5%;">{{Name}}
-<br><br>
-
-<!-- dataTable -->
-<div class="mat-elavation-z8">
-    <table class="table table-hover">
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Path</th>
-            <th>Catagory</th> 
-            <th></th>
-            <th></th>
-        </tr>
-        <tr *ngFor="let o of files">
-            <td >{{o.fileID}}</td>
-            <td>{{o.fileName}}</td>
-            <td>{{o.filePath}}</td>
-            <td>{{o.Catagory}}</td>
-            <td><button class="btn btn-primary" (click)="onEdit()">Edit</button></td>
-            <td><button class="btn btn-danger" (click)="onDelete()">Delete</button></td>
-        </tr>
-    </table>
-</div>
-
-
-
-<!-- upload button  -->
-<!-- <button mat-flat-button color ="primarry" type="button" (click)="Search()" style="margin-left: 5%;">
-    Upload Files</button><br><br> -->
-    <!-- <input type="text" #Myinput [(ngModel)]="Name" (input)="Search()" class="form-control">{{Name}} -->
-    
-    <!-- Apply filter -->
-    <!-- <mat-form-field style="widows: 80px; margin-left : 5%">
-        <input matInput type="text" (keyup)="Search()" placeholder="Filter"> 
-    </mat-form-field> -->
-    
-    <!-- dataTable -->
-    <!-- <div class="mat-elavation-z8">
-        <table mat-table [dataSource]="dataSource" mat-sort>
-            <tr>
-                <ng-container matColumnDef="ID">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
-                    <td mat-cell *matCelDef="let row">{{o.fileID}}</td>
-                </ng-container>
-                <ng-container matColumnDef="Name">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
-                    <td mat-cell *matCelDef="let row">{{o.fileName}}</td>>
-                </ng-container>
-                <ng-container matColumnDef="Path">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Path</th>
-                    <td mat-cell *matCelDef="let row">{{o.filePath}}</td>
-                </ng-container>
-                <ng-container matColumnDef="Catagory">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Catagory</th>
-                    <td mat-cell *matCelDef="let row">{{o.Catagory}}</td>
-                </ng-container>
-        </table> -->
-        <!-- <mat-paginator [pageSizeOptions]="[5,10,25,100]"></mat-paginator> -->
-    <!-- </div> -->
-=======
 <!--File upload button  -->
 <button mat-flat-button color ="primary" type="button" style="margin-left: 5%; margin-top: 1%;">Upload Files</button><br><br>
     
@@ -95,6 +27,6 @@ Upload Files</button><br><br>
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;">
                 </tr>
         </table>
-        <mat-paginator [pageSizeOptions]="[5,10,25,100]"></mat-paginator>
+        <!-- <mat-paginator [pageSizeOptions]="[5,10,25,100]"></mat-paginator> -->
     </div>
->>>>>>> 990d5e926a75df6541b224fc2df5eb08e51637fe
+
