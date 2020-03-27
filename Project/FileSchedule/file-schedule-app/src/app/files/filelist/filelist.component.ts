@@ -27,7 +27,7 @@ export class FilelistComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
-// filter method
+// filter Table Raw method
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -36,5 +36,5 @@ export class FilelistComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-
+// just to check wether push is working to this repository
 }
