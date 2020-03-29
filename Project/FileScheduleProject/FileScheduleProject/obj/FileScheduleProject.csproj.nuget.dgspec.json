@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Project\\Office\\Working\\File-Schedule-App\\Project\\FileScheduleProject\\FileScheduleProject\\FileScheduleProject.csproj": {}
+    "D:\\Office\\File-Schedule-App\\Project\\FileScheduleProject\\FileScheduleProject\\FileScheduleProject.csproj": {}
   },
   "projects": {
-    "D:\\Project\\Office\\Working\\File-Schedule-App\\Project\\FileScheduleProject\\FileScheduleProject\\FileScheduleProject.csproj": {
+    "D:\\Office\\File-Schedule-App\\Project\\FileScheduleProject\\FileScheduleProject\\FileScheduleProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Project\\Office\\Working\\File-Schedule-App\\Project\\FileScheduleProject\\FileScheduleProject\\FileScheduleProject.csproj",
+        "projectUniqueName": "D:\\Office\\File-Schedule-App\\Project\\FileScheduleProject\\FileScheduleProject\\FileScheduleProject.csproj",
         "projectName": "FileScheduleProject",
-        "projectPath": "D:\\Project\\Office\\Working\\File-Schedule-App\\Project\\FileScheduleProject\\FileScheduleProject\\FileScheduleProject.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "D:\\Project\\Office\\Working\\File-Schedule-App\\Project\\FileScheduleProject\\FileScheduleProject\\obj\\",
+        "projectPath": "D:\\Office\\File-Schedule-App\\Project\\FileScheduleProject\\FileScheduleProject\\FileScheduleProject.csproj",
+        "packagesPath": "C:\\Users\\asus\\.nuget\\packages\\",
+        "outputPath": "D:\\Office\\File-Schedule-App\\Project\\FileScheduleProject\\FileScheduleProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -38,10 +38,6 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
-            "AWSSDK": {
-              "target": "Package",
-              "version": "[2.3.55.2, )"
-            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[3.1.3, )"
@@ -59,10 +55,6 @@
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
               "version": "[3.1.3, )"
-            },
-            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
-              "target": "Package",
-              "version": "[3.1.1, )"
             }
           },
           "imports": [
@@ -83,7 +75,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
         }
       }
     }
