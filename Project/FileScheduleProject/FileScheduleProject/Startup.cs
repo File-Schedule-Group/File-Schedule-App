@@ -1,5 +1,6 @@
 using FileScheduleProject.Extensions;
 using FileScheduleProject.Models;
+using FileScheduleProject.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpOverrides;
@@ -27,7 +28,14 @@ namespace FileScheduleProject
 
             services.AddControllers();
 
+            services.AddScoped<FileContext>();
+
             services.AddDbContext<FileContext>(opts => opts.UseSqlServer(Configuration["ConnectionStrings:DbConnection"]));
+
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+
+            //services.AddScoped<IRepository<File>, Repository>()/*;*/
+
             services.AddControllers();
         }
 
