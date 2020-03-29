@@ -34,7 +34,7 @@ namespace FileScheduleProject.Controllers
             Console.WriteLine("Queue Test Starting!");
             Console.WriteLine("Creating Client and request");
             //Create some Credentials with our IAM user	            
-            var awsCreds = new BasicAWSCredentials("AKIATG4X76Y4TU67BGDN", "7JUZZujTLMczotl8P61QNZ43rL9D1WhlyAjGCtNc");
+            var awsCreds = new BasicAWSCredentials("", ""); //can't put keys hear becase aws account can be compromise.
             //Create a client to talk to SQS	            
             var amazonSQSClient = new AmazonSQSClient(awsCreds, Amazon.RegionEndpoint.EUWest1);
             //Create the request to send	            
