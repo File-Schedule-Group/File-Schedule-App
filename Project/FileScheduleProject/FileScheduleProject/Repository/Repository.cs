@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace FileScheduleProject.Repository
 {
-    public abstract class Repository<T> : IRepository<T> where T : class
+    public class Repository<T> : IRepository<T> where T : class
     {
         protected FileContext context { get; set; }
 
