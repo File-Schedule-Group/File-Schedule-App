@@ -3,6 +3,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { FileData } from 'src/app/models/FileData';
+import { FileService } from 'src/app/services/file.service';
 
 @Component({
   selector: 'app-filelist',
@@ -11,16 +12,25 @@ import { FileData } from 'src/app/models/FileData';
 })
 export class FilelistComponent implements OnInit {
 
-  displayedColumns: string[] = ['FileName', 'FilePath', 'Category'];
+  displayedColumns: string[] = ['FileName', 'FilePath', 'Category', 'Shedule'];
   files: FileData[] = [];
   dataSource: MatTableDataSource<FileData>;
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-  constructor() {
+  constructor(private service: FileService) {
     // Call the get all method here to get the data and bind it.
+    this.service.getFiles().subscribe((res: any[]) => {
+      // console.log(res);
+      this.files = res;
+      this.dataSource = new MatTableDataSource(this.files);
+    });
     this.dataSource = new MatTableDataSource(this.files);
+    const File_Data: FileData[] = [
+      {FileID: 1, FileName: 'bomb', FilePath: 'c/..', Category: 'Account'}
+    ];
+    this.dataSource = new MatTableDataSource(File_Data);
    }
 
   ngOnInit(): void {
@@ -36,5 +46,5 @@ export class FilelistComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-// just to check wether push is working to this repository
+
 }

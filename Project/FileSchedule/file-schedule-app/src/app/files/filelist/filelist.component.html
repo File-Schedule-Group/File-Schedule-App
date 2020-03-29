@@ -4,12 +4,12 @@
     
     <!-- Apply filter -->
      <mat-form-field style="widows: 80px; margin-left : 5%; width: 80%; margin-top: 1%;">
-        <input matInput (keyup)="applyFilter($event)" placeholder="Search"> 
+        <input matInput type="text" (keyup)="applyFilter($event.target.value)" placeholder="filter"> 
     </mat-form-field>
     
     <!-- dataTable -->
     <div class="mat-elavation-z8">
-        <table mat-table [dataSource]="dataSorce" mat-sort>
+        <table mat-table [dataSource]="dataSource" mat-sort>
                 <ng-container matColumnDef="FileName">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
                     <td mat-cell *matCelDef="let row">{{row.FileName}}</td>>
@@ -22,11 +22,15 @@
                     <th mat-header-cell *matHeaderCellDef mat-sort-header>Category</th>
                     <td mat-cell *matCelDef="let row">{{row.Category}}</td>
                 </ng-container>
+                <ng-container matColumnDef="Shedule">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+                    <td mat-cell *matCelDef="let row"><button mat-flat-button color="primary" type="button"><mat-icon aria-hidden="false" class="icon" aria-label="icon">Shedule</mat-icon></button></td>
+                </ng-container>
 
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;">
                 </tr>
         </table>
-        <mat-paginator [pageSizeOptions]="[5,10,25,100]"></mat-paginator>
+        <!-- <mat-paginator [pageSizeOptions]="[5,10,25,100]"></mat-paginator> -->
     </div>
 
