@@ -308,7 +308,6 @@ D:\Office\File-Schedule-App\Project\FileScheduleProject\FileScheduleProject\bin\
 D:\Office\File-Schedule-App\Project\FileScheduleProject\FileScheduleProject\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 D:\Office\File-Schedule-App\Project\FileScheduleProject\FileScheduleProject\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 D:\Office\File-Schedule-App\Project\FileScheduleProject\FileScheduleProject\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-D:\Office\File-Schedule-App\Project\FileScheduleProject\FileScheduleProject\obj\Debug\netcoreapp3.1\FileScheduleProject.csprojAssemblyReference.cache
 D:\Office\File-Schedule-App\Project\FileScheduleProject\FileScheduleProject\obj\Debug\netcoreapp3.1\FileScheduleProject.csproj.CoreCompileInputs.cache
 D:\Office\File-Schedule-App\Project\FileScheduleProject\FileScheduleProject\obj\Debug\netcoreapp3.1\FileScheduleProject.MvcApplicationPartsAssemblyInfo.cache
 D:\Office\File-Schedule-App\Project\FileScheduleProject\FileScheduleProject\obj\Debug\netcoreapp3.1\FileScheduleProject.AssemblyInfoInputs.cache
