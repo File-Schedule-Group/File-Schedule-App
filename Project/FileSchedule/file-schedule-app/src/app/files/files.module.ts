@@ -9,11 +9,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { HttpClientModule } from '@angular/common/http';
+import { ReportGenerateComponent } from './report-generate/report-generate.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [FilelistComponent],
+  declarations: [FilelistComponent, ReportGenerateComponent],
   imports: [
     CommonModule,
     FilesRoutingModule,
@@ -22,7 +24,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule,
+    FormsModule
   ]
 })
 export class FilesModule { }

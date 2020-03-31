@@ -24,8 +24,8 @@ namespace FileScheduleProject.Controllers
             return new string[] { "value1", "value2" };
         }
 
-        [HttpPost]
-        public IEnumerable<string> Sent()
+        [HttpPost("{id}")]
+        public IEnumerable<string> Sent(int id)
         {            
             var queueUrl = "https://sqs.us-east-1.amazonaws.com/220972709433/Reports";
 
