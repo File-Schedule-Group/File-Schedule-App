@@ -26,25 +26,20 @@ namespace FileScheduleProject.Controllers
 
         [HttpPost]
         public IEnumerable<string> Sent()
-        {
-            //the url for our queue	            
-            //"https://sqs.eu-west-1.amazonaws.com/[USERID]/[QUEUENAME]";
-
+        {            
             var queueUrl = "https://sqs.us-east-1.amazonaws.com/220972709433/Reports";
-            Console.WriteLine("Queue Test Starting!");
-            Console.WriteLine("Creating Client and request");
+
             //Create some Credentials with our IAM user	            
             var awsCreds = new BasicAWSCredentials("", ""); //can't put keys hear becase aws account can be compromise.
             //Create a client to talk to SQS	            
-            var amazonSQSClient = new AmazonSQSClient(awsCreds, Amazon.RegionEndpoint.EUWest1);
+            var amazonSQSClient = new AmazonSQSClient(awsCreds, Amazon.RegionEndpoint.USEast1);
             //Create the request to send	            
             var sendRequest = new SendMessageRequest();
             sendRequest.QueueUrl = queueUrl;
             sendRequest.MessageBody = "{ 'message' : 'hello world' }";
             //Send the message to the queue and wait for the result	            
-            Console.WriteLine("Sending Message");
             var sendMessageResponse = amazonSQSClient.SendMessageAsync(sendRequest).Result;
-            Console.WriteLine("Receiving Message");
+
             //Create a receive requesdt to see if there are any messages on the queue	            
             var receiveMessageRequest = new ReceiveMessageRequest();
             receiveMessageRequest.QueueUrl = queueUrl;
@@ -62,6 +57,7 @@ namespace FileScheduleProject.Controllers
                     deleteMessageRequest.QueueUrl = queueUrl;
                     deleteMessageRequest.ReceiptHandle = message.ReceiptHandle;
                     var result = amazonSQSClient.DeleteMessageAsync(deleteMessageRequest).Result;
+                    return new string[] { "Message", message.Body };
                 }
             }
 
