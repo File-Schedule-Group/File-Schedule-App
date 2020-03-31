@@ -1,10 +1,17 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { FileData } from '../models/FileData';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FileService {
-  //Add file services here.
+  BaseUrl="https://localhost:44351/api/file";
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  getFiles(): Observable<FileData[]>{
+    return this.http.get<FileData[]>(this.BaseUrl);
+  }
 }
