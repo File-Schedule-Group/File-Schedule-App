@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "U2SOZ3WL05YGd5cjTL2hQrBaEHsRdzHR/gXyg4pnM+e1AtNG/rbUhzzvPbhJ+d7ZuyhFWjxVlmf3stHPRGnRJw==",
+  "dgSpecHash": "dgmcgYN8+/VGz+Aq7YIZaI3mCXNkzk2rKG/DWOOmIIr/ixOMYBSz0Iy9EuJaTd7u6cwvC5/WjUwhWt3J73cmPg==",
   "success": true,
   "projectFilePath": "D:\\Office\\File-Schedule-App\\Project\\FileScheduleProject\\FileScheduleProject\\FileScheduleProject.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\asus\\.nuget\\packages\\awssdk\\2.3.55.2\\awssdk.2.3.55.2.nupkg.sha512",
+    "C:\\Users\\asus\\.nuget\\packages\\awssdk.core\\3.3.105.5\\awssdk.core.3.3.105.5.nupkg.sha512",
+    "C:\\Users\\asus\\.nuget\\packages\\awssdk.sqs\\3.3.102.83\\awssdk.sqs.3.3.102.83.nupkg.sha512",
     "C:\\Users\\asus\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\asus\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",
     "C:\\Users\\asus\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\3.1.0\\microsoft.aspnetcore.razor.language.3.1.0.nupkg.sha512",
@@ -159,16 +160,5 @@
     "C:\\Users\\asus\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\asus\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'AWSSDK 2.3.55.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
-      "libraryId": "AWSSDK",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    }
-  ]
+  "logs": []
 }

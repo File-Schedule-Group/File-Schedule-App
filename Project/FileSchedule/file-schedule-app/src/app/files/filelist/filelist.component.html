@@ -23,7 +23,7 @@
                 </ng-container>
                 <ng-container matColumnDef="schedule">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
-                    <td mat-cell *matCellDef="let row"><button mat-flat-button color="primary" type="button">
+                    <td mat-cell *matCellDef="let row"><button mat-flat-button color="primary" type="button" (click)="openModal(row)">
                         <mat-icon aria-hidden="false" class="icon" aria-label="schedule-icon">schedule</mat-icon></button>
                     </td>
                 </ng-container>

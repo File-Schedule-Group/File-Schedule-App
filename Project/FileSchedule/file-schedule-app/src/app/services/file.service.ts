@@ -7,11 +7,15 @@ import { FileData } from '../models/FileData';
   providedIn: 'root'
 })
 export class FileService {
-  BaseUrl="https://localhost:44351/api/file";
+  BaseUrl="https://localhost:44351/api/";
 
   constructor(private http: HttpClient) { }
 
   getFiles(): Observable<FileData[]>{
-    return this.http.get<FileData[]>(this.BaseUrl);
+    return this.http.get<FileData[]>(this.BaseUrl + "file");
+  }
+
+  generateReport(fileID: number): Observable<number>{
+    return this.http.post<number>(this.BaseUrl + "message/" + fileID, "FileID");
   }
 }
