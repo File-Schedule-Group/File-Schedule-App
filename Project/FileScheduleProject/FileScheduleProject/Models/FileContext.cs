@@ -1,8 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace FileScheduleProject.Models
 {
@@ -14,8 +10,9 @@ namespace FileScheduleProject.Models
         }
 
         public DbSet<Report> Report { get; set; }
-
         public DbSet<File> File { get; set; }
+        public DbSet<Configuration> Configuration { get; set; }
+        
 
         //seed data
         // https://code-maze.com/net-core-web-api-ef-core-code-first/

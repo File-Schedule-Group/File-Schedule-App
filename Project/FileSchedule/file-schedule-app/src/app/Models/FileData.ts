@@ -1,7 +1,7 @@
 export interface FileData
 {
-    FileID: number;
-    FileName: string;
-    FilePath: string;
-    Category: string;
+    fileID: number;
+    fileName: string;
+    filePath: string;
+    category: string;
 }
