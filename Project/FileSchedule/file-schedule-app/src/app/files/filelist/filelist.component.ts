@@ -44,10 +44,10 @@ export class FilelistComponent implements OnInit {
   }
 
   openModal(rowObject: FileData){
-    // console.log(rowObject.fileID);
     const dialogRef = this.dialog.open(ReportGenerateComponent, {
-      width: '400px',
+      width: '350px',
       height: '350px',
+      disableClose: true,
       data: {fileID: rowObject.fileID, fileName: rowObject.fileName, filePath: rowObject.filePath, category: rowObject.category}
     });
 
