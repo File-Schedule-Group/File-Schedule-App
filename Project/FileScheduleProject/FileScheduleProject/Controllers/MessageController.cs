@@ -1,6 +1,8 @@
 ﻿using Amazon.Runtime;
 using Amazon.SQS;
 using Amazon.SQS.Model;
+using FileScheduleProject.Models;
+using FileScheduleProject.Repository;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -13,15 +15,17 @@ namespace FileScheduleProject.Controllers
     [Route("api/[controller]")]
     public class MessageController : Controller
     {
-        public IActionResult Index()
+        private IRepository<Configuration> Configuration;
+
+        public MessageController(IRepository<Configuration> _Configuration)
         {
-            return View();
+            this.Configuration = _Configuration;
         }
 
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new string[] { "value1", "value2" };            
         }
 
         [HttpPost]
