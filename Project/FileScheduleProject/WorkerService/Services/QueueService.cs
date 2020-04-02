@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace WorkerService.Services
 {
+    // No nee this, but i keep this one for future purpose...
     public class QueueService : IQueueService
     {
         private readonly IAmazonSQS _sqsService;
