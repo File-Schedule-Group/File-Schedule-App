@@ -15,7 +15,7 @@ export class FileService {
     return this.http.get<FileData[]>(this.BaseUrl + "file");
   }
 
-  generateReport(fileID: number): Observable<number>{
-    return this.http.post<number>(this.BaseUrl + "message/" + fileID, "FileID");
+  generateReport(file: FileData): Observable<FileData>{
+    return this.http.post<FileData>(this.BaseUrl + "message", file);
   }
 }

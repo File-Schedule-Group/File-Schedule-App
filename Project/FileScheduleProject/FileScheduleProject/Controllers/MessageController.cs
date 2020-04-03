@@ -30,15 +30,14 @@ namespace FileScheduleProject.Controllers
             return new string[] { "API", "Working....." };
         }
 
-        //[HttpPost("{id}")]  // why we need this?
         [HttpPost]
-        public IActionResult Sent(int id)
+        public IActionResult Sent([FromBody]File file)
         {
             var queueUrl = "https://sqs.us-east-1.amazonaws.com/220972709433/Reports";
 
             var sendRequest = new SendMessageRequest();
             sendRequest.QueueUrl = queueUrl;
-            sendRequest.MessageBody = "{ 'ReportId' : "+ id +" , 'User' : 3 }";
+            sendRequest.MessageBody = "{ 'ReportId' : "+ file.FileID +" , 'User' : 3 }";
             var sendMessageResponse = sqs.SendMessageAsync(sendRequest).Result;
 
             if (sendMessageResponse.HttpStatusCode != System.Net.HttpStatusCode.OK)

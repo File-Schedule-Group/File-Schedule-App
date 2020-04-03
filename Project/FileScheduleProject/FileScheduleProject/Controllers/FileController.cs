@@ -21,7 +21,6 @@ namespace FileScheduleProject.Controllers
         }
 
         [HttpGet]
-        //[Route("")]
         public IEnumerable<File> GetFiles()
         {
             return _fileRepository.GetAll();
