@@ -13,6 +13,8 @@ export class ReportGenerateComponent implements OnInit {
   fileName: string;
   category: string;
 
+  file: FileData;
+
   constructor(public dialogRef: MatDialogRef<ReportGenerateComponent>,
     @Inject(MAT_DIALOG_DATA) public data: FileData, private fileService: FileService) { 
     }
@@ -23,8 +25,15 @@ export class ReportGenerateComponent implements OnInit {
     this.category = this.data.category;
   }
 
-  onGenerate(fileId: number){
-    this.fileService.generateReport(fileId).subscribe(res => console.log("Passed", res));
+  onGenerate(){
+    this.file = {
+      fileID: this.fileID,
+      fileName: this.fileName,
+      filePath: null,
+      category: this.category
+    }
+
+    this.fileService.generateReport(this.file).subscribe(res => console.log("Passed", res));
   }
 
   onClose(){
