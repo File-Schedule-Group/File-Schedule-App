@@ -147,7 +147,6 @@ D:\Office\File-Schedule-App\Project\FileScheduleProject\FileScheduleProject\obj\
 D:\Office\File-Schedule-App\Project\FileScheduleProject\FileScheduleProject\obj\Debug\netcoreapp3.1\FileScheduleProject.genruntimeconfig.cache
 D:\Office\File-Schedule-App\Project\FileScheduleProject\FileScheduleProject\bin\Debug\netcoreapp3.1\AWSSDK.Core.dll
 D:\Office\File-Schedule-App\Project\FileScheduleProject\FileScheduleProject\bin\Debug\netcoreapp3.1\AWSSDK.SQS.dll
-D:\Office\File-Schedule-App\Project\FileScheduleProject\FileScheduleProject\obj\Debug\netcoreapp3.1\FileScheduleProject.csprojAssemblyReference.cache
 D:\Project\Office\Working\File-Schedule-App\Project\FileScheduleProject\FileScheduleProject\bin\Debug\netcoreapp3.1\appsettings.Development.json
 D:\Project\Office\Working\File-Schedule-App\Project\FileScheduleProject\FileScheduleProject\bin\Debug\netcoreapp3.1\appsettings.json
 D:\Project\Office\Working\File-Schedule-App\Project\FileScheduleProject\FileScheduleProject\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
@@ -274,3 +273,5 @@ D:\Project\Office\Working\File-Schedule-App\Project\FileScheduleProject\FileSche
 D:\Project\Office\Working\File-Schedule-App\Project\FileScheduleProject\FileScheduleProject\obj\Debug\netcoreapp3.1\FileScheduleProject.dll
 D:\Project\Office\Working\File-Schedule-App\Project\FileScheduleProject\FileScheduleProject\obj\Debug\netcoreapp3.1\FileScheduleProject.pdb
 D:\Project\Office\Working\File-Schedule-App\Project\FileScheduleProject\FileScheduleProject\obj\Debug\netcoreapp3.1\FileScheduleProject.csprojAssemblyReference.cache
+D:\Office\File-Schedule-App\Project\FileScheduleProject\FileScheduleProject\bin\Debug\netcoreapp3.1\AWSSDK.Extensions.NETCore.Setup.dll
+D:\Office\File-Schedule-App\Project\FileScheduleProject\FileScheduleProject\obj\Debug\netcoreapp3.1\FileScheduleProject.csprojAssemblyReference.cache
