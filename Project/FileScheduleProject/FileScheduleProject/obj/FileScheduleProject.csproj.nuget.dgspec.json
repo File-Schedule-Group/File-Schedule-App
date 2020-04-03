@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Project\\Office\\Update\\File-Schedule-App\\Project\\FileScheduleProject\\FileScheduleProject\\FileScheduleProject.csproj": {}
+    "D:\\Project\\Office\\Working\\File-Schedule-App\\Project\\FileScheduleProject\\FileScheduleProject\\FileScheduleProject.csproj": {}
   },
   "projects": {
-    "D:\\Project\\Office\\Update\\File-Schedule-App\\Project\\FileScheduleProject\\FileScheduleProject\\FileScheduleProject.csproj": {
+    "D:\\Project\\Office\\Working\\File-Schedule-App\\Project\\FileScheduleProject\\FileScheduleProject\\FileScheduleProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Project\\Office\\Update\\File-Schedule-App\\Project\\FileScheduleProject\\FileScheduleProject\\FileScheduleProject.csproj",
+        "projectUniqueName": "D:\\Project\\Office\\Working\\File-Schedule-App\\Project\\FileScheduleProject\\FileScheduleProject\\FileScheduleProject.csproj",
         "projectName": "FileScheduleProject",
-        "projectPath": "D:\\Project\\Office\\Update\\File-Schedule-App\\Project\\FileScheduleProject\\FileScheduleProject\\FileScheduleProject.csproj",
+        "projectPath": "D:\\Project\\Office\\Working\\File-Schedule-App\\Project\\FileScheduleProject\\FileScheduleProject\\FileScheduleProject.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "D:\\Project\\Office\\Update\\File-Schedule-App\\Project\\FileScheduleProject\\FileScheduleProject\\obj\\",
+        "outputPath": "D:\\Project\\Office\\Working\\File-Schedule-App\\Project\\FileScheduleProject\\FileScheduleProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -41,6 +41,10 @@
             "AWSSDK.Core": {
               "target": "Package",
               "version": "[3.3.105.5, )"
+            },
+            "AWSSDK.Extensions.NETCore.Setup": {
+              "target": "Package",
+              "version": "[3.3.101, )"
             },
             "AWSSDK.SQS": {
               "target": "Package",

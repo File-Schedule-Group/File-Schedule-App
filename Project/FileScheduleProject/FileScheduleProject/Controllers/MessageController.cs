@@ -16,56 +16,37 @@ namespace FileScheduleProject.Controllers
     public class MessageController : Controller
     {
         private IRepository<Configuration> Configuration;
+        private IAmazonSQS sqs;
 
-        public MessageController(IRepository<Configuration> _Configuration)
+        public MessageController(IRepository<Configuration> _Configuration, IAmazonSQS _sqs)
         {
             this.Configuration = _Configuration;
+            this.sqs = _sqs;
         }
 
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };            
+            return new string[] { "API", "Working....." };
         }
 
-        [HttpPost("{id}")]
-        public IEnumerable<string> Sent(int id)
-        {            
+        //[HttpPost("{id}")]  // why we need this?
+        [HttpPost]
+        public IActionResult Sent(int id)
+        {
             var queueUrl = "https://sqs.us-east-1.amazonaws.com/220972709433/Reports";
 
-            //Create some Credentials with our IAM user	            
-            var awsCreds = new BasicAWSCredentials("", ""); //can't put keys hear becase aws account can be compromise.
-            //Create a client to talk to SQS	            
-            var amazonSQSClient = new AmazonSQSClient(awsCreds, Amazon.RegionEndpoint.USEast1);
-            //Create the request to send	            
             var sendRequest = new SendMessageRequest();
             sendRequest.QueueUrl = queueUrl;
-            sendRequest.MessageBody = "{ 'message' : 'hello world' }";
-            //Send the message to the queue and wait for the result	            
-            var sendMessageResponse = amazonSQSClient.SendMessageAsync(sendRequest).Result;
+            sendRequest.MessageBody = "{ 'ReportId' : "+ id +" , 'User' : 3 }";
+            var sendMessageResponse = sqs.SendMessageAsync(sendRequest).Result;
 
-            //Create a receive requesdt to see if there are any messages on the queue	            
-            var receiveMessageRequest = new ReceiveMessageRequest();
-            receiveMessageRequest.QueueUrl = queueUrl;
-            //Send the receive request and wait for the response	            
-            var response = amazonSQSClient.ReceiveMessageAsync(receiveMessageRequest).Result;
-            //If we have any messages available	            
-            if (response.Messages.Any())
+            if (sendMessageResponse.HttpStatusCode != System.Net.HttpStatusCode.OK)
             {
-                foreach (var message in response.Messages)
-                {
-                    //Spit it out	                    
-                    Console.WriteLine(message.Body);
-                    //Remove it from the queue as we don't want to see it again	                    
-                    var deleteMessageRequest = new DeleteMessageRequest();
-                    deleteMessageRequest.QueueUrl = queueUrl;
-                    deleteMessageRequest.ReceiptHandle = message.ReceiptHandle;
-                    var result = amazonSQSClient.DeleteMessageAsync(deleteMessageRequest).Result;
-                    return new string[] { "Message", message.Body };
-                }
+                return BadRequest();
             }
 
-            return new string[] { "value1", "value2" };
+            return Ok();
         }
     }
 }

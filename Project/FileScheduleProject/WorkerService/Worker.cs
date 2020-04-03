@@ -40,13 +40,13 @@ namespace WorkerService
 
                         WaitTimeSeconds = 5
                     };
-                    
+                   
                     var result = await _sqs.ReceiveMessageAsync(request);
                     if (result.Messages.Any())
                     {
                         foreach (var message in result.Messages)
                         {
-                            //Generate Report() // Call Generate Report method.This will Generate a Report and save the Report our location. Not Implement Yet
+                            //GenerateReport(JsonConvert.DeserializeObject<Message>(message.Body));
 
                             // Some Processing code would live here
                             _logger.LogInformation("Processing Message: {message} | {time}", message.Body, DateTimeOffset.Now);
@@ -69,6 +69,12 @@ namespace WorkerService
 
                 _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
             }
+        }
+
+        private void GenerateReport(Message message)
+        {
+
+            throw new NotImplementedException();
         }
     }
 }
