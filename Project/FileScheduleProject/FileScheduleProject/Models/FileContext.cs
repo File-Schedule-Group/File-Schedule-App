@@ -36,8 +36,30 @@ namespace FileScheduleProject.Models
             //    DateOfBirth = new DateTime(1981, 07, 13),
             //    PhoneNumber = "111-222-3333"
             //});
-        }
 
+            modelBuilder.Entity<File>().HasData(new File
+            {
+                FileID = 1,
+                FileName = "TestFile1",
+                FilePath = "Path1",
+                Category = "HR"
+
+            }, new File
+            {
+                FileID = 2,
+                FileName = "TestFile2",
+                FilePath = "Path2",
+                Category = "Insuarance"
+
+            }, new File
+            {
+                FileID = 3,
+                FileName = "TestFile3",
+                FilePath = "Path3",
+                Category = "Finance"
+
+            });
+        }
     }
 }
 
