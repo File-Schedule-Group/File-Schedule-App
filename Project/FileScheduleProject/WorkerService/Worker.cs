@@ -46,7 +46,7 @@ namespace WorkerService
                     {
                         foreach (var message in result.Messages)
                         {
-                            //GenerateReport(JsonConvert.DeserializeObject<Message>(message.Body));
+                            ReportGenerate(JsonConvert.DeserializeObject<Message>(message.Body));
 
                             // Some Processing code would live here
                             _logger.LogInformation("Processing Message: {message} | {time}", message.Body, DateTimeOffset.Now);
@@ -71,9 +71,8 @@ namespace WorkerService
             }
         }
 
-        private void GenerateReport(Message message)
+        private void ReportGenerate(Message message)
         {
-
             throw new NotImplementedException();
         }
     }

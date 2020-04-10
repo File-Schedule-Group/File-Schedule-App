@@ -24,8 +24,6 @@ namespace FileScheduleProject.Controllers
         public IEnumerable<File> GetFiles()
         {
             return _fileRepository.GetAll();
-        } 
-
-
+        }
     }
 }
