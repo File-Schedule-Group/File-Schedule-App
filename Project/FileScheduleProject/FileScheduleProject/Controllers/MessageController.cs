@@ -31,13 +31,13 @@ namespace FileScheduleProject.Controllers
         }
 
         [HttpPost]
-        public IActionResult Sent([FromBody]File file)
+        public IActionResult Sent(int id)
         {
             var queueUrl = "https://sqs.us-east-1.amazonaws.com/220972709433/Reports";
 
             var sendRequest = new SendMessageRequest();
             sendRequest.QueueUrl = queueUrl;
-            sendRequest.MessageBody = "{ 'ReportId' : "+ file.FileID +" , 'User' : 3 }";
+            sendRequest.MessageBody = "{ 'ReportId' : " + id + " , 'User' : 3 }";
             var sendMessageResponse = sqs.SendMessageAsync(sendRequest).Result;
 
             if (sendMessageResponse.HttpStatusCode != System.Net.HttpStatusCode.OK)

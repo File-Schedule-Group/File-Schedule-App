@@ -4,7 +4,7 @@ using System.Text;
 
 namespace WorkerService.Models
 {
-    public class Message
+    public class ReceivedMessage
     {
         public int ReportId { get; set; }
         public int User { get; set; }
