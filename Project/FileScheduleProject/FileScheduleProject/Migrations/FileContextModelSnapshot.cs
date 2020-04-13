@@ -56,6 +56,29 @@ namespace FileScheduleProject.Migrations
                     b.HasKey("FileID");
 
                     b.ToTable("File");
+
+                    b.HasData(
+                        new
+                        {
+                            FileID = 1,
+                            Category = "HR",
+                            FileName = "TestFile1",
+                            FilePath = "Path1"
+                        },
+                        new
+                        {
+                            FileID = 2,
+                            Category = "Insuarance",
+                            FileName = "TestFile2",
+                            FilePath = "Path2"
+                        },
+                        new
+                        {
+                            FileID = 3,
+                            Category = "Finance",
+                            FileName = "TestFile3",
+                            FilePath = "Path3"
+                        });
                 });
 
             modelBuilder.Entity("FileScheduleProject.Models.Report", b =>
