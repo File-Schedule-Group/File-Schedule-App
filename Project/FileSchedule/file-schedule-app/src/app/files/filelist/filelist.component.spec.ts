@@ -10,6 +10,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
+import { DebugElement } from '@angular/core';
+import { By } from '@angular/platform-browser';
+import { FilesModule } from '../files.module';
 
 describe('FilelistComponent', () => {
   let component: FilelistComponent;
@@ -51,7 +54,7 @@ describe('FilelistComponent', () => {
 
   it('Shoud open File Open Model', () => {
     spyOn(component, 'openModal');
-    let button = fixture.debugElement.nativeElement.querySelector('button');
+    const button = fixture.debugElement.nativeElement.querySelector('button');
     button.click();
 
     fixture.whenStable().then(() => {
@@ -70,4 +73,28 @@ describe('FilelistComponent', () => {
   //     expect(component.onGenerate).toHaveBeenCalled();
   //   });
   // });
+});
+describe('MaterialTable of filelist Component data', () => {
+  let fixture: ComponentFixture<FilelistComponent>;
+  let de: DebugElement;
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      imports: [FilesModule],  // MatTableModule
+      declarations: [ FilelistComponent ]
+    })
+    .compileComponents();
+  }));
+  beforeEach(() => {
+    fixture = TestBed.createComponent(FilelistComponent);
+    de = fixture.debugElement;
+  });
+  it('should has correct rows', () => {
+    fixture.detectChanges();
+    // query debug elements doesn't work
+    const rowDebugElements = de.queryAll(By.css('tbody tr'));
+    expect(rowDebugElements.length).toBe(0);
+    // has to fallback to query DOM elements
+    const rowHtmlElements = de.nativeElement.querySelectorAll('tbody tr');
+    expect(rowHtmlElements.length).toBe(10);
+  });
 });
