@@ -13,6 +13,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { FilesModule } from '../files.module';
+import { FileData } from 'src/app/models/FileData';
 
 describe('FilelistComponent', () => {
   let component: FilelistComponent;
@@ -74,27 +75,76 @@ describe('FilelistComponent', () => {
   //   });
   // });
 });
-describe('MaterialTable of filelist Component data', () => {
-  let fixture: ComponentFixture<FilelistComponent>;
-  let de: DebugElement;
+
+
+describe('FilelistComponent dtaaloading in mat-table', () => {
+  let backendService;
+  let fixture;
+  let component;
+  const testFiles: FileData[] = [
+    { fileID: 1, fileName: 'abc', filePath: 'c/1', category: 'admin' },
+    { fileID: 2, fileName: 'efg', filePath: 'c/2', category: 'user1' },
+    { fileID: 3, fileName: 'asd', filePath: 'c/3', category: 'user2' }
+  ];
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [FilesModule],  // MatTableModule
-      declarations: [ FilelistComponent ]
-    })
-    .compileComponents();
+      declarations: [ FilelistComponent ],
+      imports: [MatTableModule]
+    }).compileComponents();
   }));
+
   beforeEach(() => {
     fixture = TestBed.createComponent(FilelistComponent);
-    de = fixture.debugElement;
-  });
-  it('should has correct rows', () => {
+    component = fixture.componentInstance;
     fixture.detectChanges();
-    // query debug elements doesn't work
-    const rowDebugElements = de.queryAll(By.css('tbody tr'));
-    expect(rowDebugElements.length).toBe(0);
-    // has to fallback to query DOM elements
-    const rowHtmlElements = de.nativeElement.querySelectorAll('tbody tr');
-    expect(rowHtmlElements.length).toBe(10);
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('should test the table ', (done) => {
+    expect(component.FileData).toEqual(testFiles);
+
+    fixture.detectChanges();
+    fixture.whenStable().then(() => {
+      fixture.detectChanges();
+
+      const tableRows = fixture.nativeElement.querySelectorAll('tr');
+      expect(tableRows.length).toBe(4);
+
+      // Header row
+      const headerRow = tableRows[0];
+      expect(headerRow.cells[0].innerHTML).toBe('fileID');
+      expect(headerRow.cells[1].innerHTML).toBe('fileName');
+      expect(headerRow.cells[2].innerHTML).toBe('filePath');
+      expect(headerRow.cells[3].innerHTML).toBe('category');
+
+      // { fileID: 1, fileName: 'abc', filePath: 'c/1', category: 'admin' },
+      // { fileID: 2, fileName: 'efg', filePath: 'c/2', category: 'user1' },
+      // { fileID: 3, fileName: 'asd', filePath: 'c/3', category: 'user2' }
+      // Data rows
+      const row1 = tableRows[1];
+      expect(row1.cells[0].innerHTML).toBe(1);
+      console.log(row1);
+      expect(row1.cells[1].innerHTML).toBe('abc');
+      expect(row1.cells[2].innerHTML).toBe('c/1');
+      expect(row1.cells[3].innerHTML).toBe('admin');
+
+      const row2 = tableRows[2];
+      expect(row2.cells[0].innerHTML).toBe(2);
+      expect(row2.cells[1].innerHTML).toBe('efg');
+      expect(row2.cells[2].innerHTML).toBe('c/2');
+      expect(row1.cells[3].innerHTML).toBe('user1');
+
+      const row3 = tableRows[3];
+      expect(row3.cells[0].innerHTML).toBe(3);
+      expect(row3.cells[1].innerHTML).toBe('asd');
+      expect(row3.cells[2].innerHTML).toBe('c/3');
+      expect(row1.cells[3].innerHTML).toBe('user2');
+
+      done();
+    });
   });
 });
