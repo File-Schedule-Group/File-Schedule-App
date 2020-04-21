@@ -4,7 +4,7 @@ import { FilelistComponent } from './filelist.component';
 import { FileService } from 'src/app/services/file.service';
 import { of } from 'rxjs';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatTableModule } from '@angular/material/table';
+import { MatTableModule, MatTableDataSource } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
@@ -77,10 +77,30 @@ describe('FilelistComponent', () => {
 });
 
 
-describe('FilelistComponent dtaaloading in mat-table', () => {
-  let backendService;
+describe('FilelistComponent Dataloading in mat-table', () => {
+  let fileServiceTest: jasmine.SpyObj<FileService>;
   let fixture;
   let component;
+  beforeEach(async(() => {
+    fileServiceTest = jasmine.createSpyObj('FileService', ['getFiles']);
+    fileServiceTest.getFiles.and.returnValue(of());
+
+    TestBed.configureTestingModule({
+      declarations: [ FilelistComponent ],
+      imports: [
+        MatTableModule,
+        MatPaginatorModule,
+        HttpClientModule,
+        MatIconModule,
+        MatDialogModule,
+        BrowserAnimationsModule
+      ],
+      providers: [
+        {provide: FileService, useValue: fileServiceTest},
+      ]
+    })
+    .compileComponents();
+  }));
   const testFiles: FileData[] = [
     { fileID: 1, fileName: 'abc', filePath: 'c/1', category: 'admin' },
     { fileID: 2, fileName: 'efg', filePath: 'c/2', category: 'user1' },
@@ -100,12 +120,16 @@ describe('FilelistComponent dtaaloading in mat-table', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create ', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should test the table ', (done) => {
+  it('should test the table Data', (done) => {
+    component.FileData = testFiles;
+    component.dataSource = new MatTableDataSource(testFiles);
+
     expect(component.FileData).toEqual(testFiles);
+    // expect(component.FileData).toEqual(component.dataSource);
 
     fixture.detectChanges();
     fixture.whenStable().then(() => {
@@ -116,33 +140,30 @@ describe('FilelistComponent dtaaloading in mat-table', () => {
 
       // Header row
       const headerRow = tableRows[0];
-      expect(headerRow.cells[0].innerHTML).toBe('fileID');
-      expect(headerRow.cells[1].innerHTML).toBe('fileName');
-      expect(headerRow.cells[2].innerHTML).toBe('filePath');
-      expect(headerRow.cells[3].innerHTML).toBe('category');
+      expect(headerRow.cells[3].innerHTML).toBe('');
+      expect(headerRow.cells[0].innerHTML).toBe('Name');
+      expect(headerRow.cells[1].innerHTML).toBe('Path');
+      expect(headerRow.cells[2].innerHTML).toBe('Category');
 
-      // { fileID: 1, fileName: 'abc', filePath: 'c/1', category: 'admin' },
-      // { fileID: 2, fileName: 'efg', filePath: 'c/2', category: 'user1' },
-      // { fileID: 3, fileName: 'asd', filePath: 'c/3', category: 'user2' }
       // Data rows
       const row1 = tableRows[1];
-      expect(row1.cells[0].innerHTML).toBe(1);
+      // expect(row1.cells[3].innerHTML).toBe(1);
       console.log(row1);
-      expect(row1.cells[1].innerHTML).toBe('abc');
-      expect(row1.cells[2].innerHTML).toBe('c/1');
-      expect(row1.cells[3].innerHTML).toBe('admin');
+      expect(row1.cells[0].innerHTML).toBe('abc');
+      expect(row1.cells[1].innerHTML).toBe('c/1');
+      expect(row1.cells[2].innerHTML).toBe('admin');
 
       const row2 = tableRows[2];
-      expect(row2.cells[0].innerHTML).toBe(2);
-      expect(row2.cells[1].innerHTML).toBe('efg');
-      expect(row2.cells[2].innerHTML).toBe('c/2');
-      expect(row1.cells[3].innerHTML).toBe('user1');
+      expect(row2.cells[0].innerHTML).toBe('efg');
+      expect(row2.cells[1].innerHTML).toBe('c/2');
+      expect(row2.cells[2].innerHTML).toBe('user1');
+      // expect(row1.cells[3].innerHTML).toBe('c/2');
 
       const row3 = tableRows[3];
-      expect(row3.cells[0].innerHTML).toBe(3);
-      expect(row3.cells[1].innerHTML).toBe('asd');
-      expect(row3.cells[2].innerHTML).toBe('c/3');
-      expect(row1.cells[3].innerHTML).toBe('user2');
+      // expect(row3.cells[3].innerHTML).toBe(3);
+      expect(row3.cells[0].innerHTML).toBe('asd');
+      expect(row3.cells[1].innerHTML).toBe('c/3');
+      expect(row1.cells[2].innerHTML).toBe('admin');
 
       done();
     });
