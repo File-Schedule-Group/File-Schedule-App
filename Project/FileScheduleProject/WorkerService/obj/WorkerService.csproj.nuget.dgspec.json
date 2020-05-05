@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Office\\File-Schedule-App\\Project\\FileScheduleProject\\WorkerService\\WorkerService.csproj": {}
+    "C:\\Users\\tharusara\\Desktop\\Report_Sheduler\\File-Schedule-App\\Project\\FileScheduleProject\\WorkerService\\WorkerService.csproj": {}
   },
   "projects": {
-    "D:\\Office\\File-Schedule-App\\Project\\FileScheduleProject\\WorkerService\\WorkerService.csproj": {
+    "C:\\Users\\tharusara\\Desktop\\Report_Sheduler\\File-Schedule-App\\Project\\FileScheduleProject\\WorkerService\\WorkerService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Office\\File-Schedule-App\\Project\\FileScheduleProject\\WorkerService\\WorkerService.csproj",
+        "projectUniqueName": "C:\\Users\\tharusara\\Desktop\\Report_Sheduler\\File-Schedule-App\\Project\\FileScheduleProject\\WorkerService\\WorkerService.csproj",
         "projectName": "WorkerService",
-        "projectPath": "D:\\Office\\File-Schedule-App\\Project\\FileScheduleProject\\WorkerService\\WorkerService.csproj",
-        "packagesPath": "C:\\Users\\asus\\.nuget\\packages\\",
-        "outputPath": "D:\\Office\\File-Schedule-App\\Project\\FileScheduleProject\\WorkerService\\obj\\",
+        "projectPath": "C:\\Users\\tharusara\\Desktop\\Report_Sheduler\\File-Schedule-App\\Project\\FileScheduleProject\\WorkerService\\WorkerService.csproj",
+        "packagesPath": "C:\\Users\\tharusara\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tharusara\\Desktop\\Report_Sheduler\\File-Schedule-App\\Project\\FileScheduleProject\\WorkerService\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\tharusara\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
