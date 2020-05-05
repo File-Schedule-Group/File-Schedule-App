@@ -5,7 +5,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import { FileData } from 'src/app/models/FileData';
 import { FileService } from 'src/app/services/file.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { ReportGenerateComponent } from '../report-generate/report-generate.component';
+import { ReportGenerateComponent } from '../../reports/report-generate/report-generate.component';
 
 @Component({
   selector: 'app-filelist',
