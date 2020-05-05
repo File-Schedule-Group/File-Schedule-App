@@ -1,4 +1,8 @@
 using Amazon.SQS;
+using DinkToPdf;
+using DinkToPdf.Contracts;
+using FileScheduleProject.Models;
+using FileScheduleProject.Repository;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -27,6 +31,8 @@ namespace WorkerService
                 })
                 .ConfigureServices((hostingContext, services) =>
                 {
+                    services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools()));
+
                     // AWS Configuration
                     var options = hostingContext.Configuration.GetAWSOptions();
                     services.AddDefaultAWSOptions(options);
@@ -34,6 +40,8 @@ namespace WorkerService
 
                     // Worker Service
                     services.AddHostedService<Worker>();
+                    //services.AddScoped<FileContext>();
+                    //services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
                 });
     }
 }
