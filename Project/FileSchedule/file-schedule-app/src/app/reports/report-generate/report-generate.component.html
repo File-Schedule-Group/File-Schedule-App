@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>Generate Report</h1>
+
+<div mat-dialog-content>
+    <mat-form-field>
+      <mat-label>ID</mat-label>
+      <input matInput [(ngModel)]="fileID" readonly>
+    </mat-form-field><br>
+    <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput [(ngModel)]="fileName" readonly>
+    </mat-form-field><br>
+    <mat-form-field>
+        <mat-label>Category</mat-label>
+        <input matInput [(ngModel)]="category">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <!-- <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Generate</button> -->
+    <button mat-flat-button color="primary" cdkFocusInitial (click)="onGenerate()">Generate</button>&nbsp;
+    <button mat-flat-button color="accent">Schedule</button>&nbsp;
+    <button mat-flat-button color="warn" (click)="onClose()">Cancel</button>
+</div>
+
+
